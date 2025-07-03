@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokédex para Binder - Gen 1 & 2 con Fotos</title>
+    <title>Pokédex para Binder - Gen 1 & 2</title>
     <style>
         /* General page styles */
         body {
@@ -30,7 +30,8 @@
             border-bottom: 3px solid #ffde00; /* Pokémon Yellow color */
             padding-bottom: 5px;
             margin-top: 40px;
-            width: 80%;
+            width: 90%;
+            max-width: 650px;
             text-align: center;
         }
 
@@ -56,6 +57,11 @@
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
+        }
+        
+        .pokedex-grid td:empty {
+            background-color: #f0f0f0;
+            border-style: solid;
         }
 
         /* Style for the Pokémon image */
@@ -86,6 +92,13 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
             border-style: solid;
         }
+        
+        .page-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
         /* Styles for printing */
         @media print {
@@ -93,89 +106,96 @@
                 background-color: #fff;
                 padding: 0;
             }
-            h1, h2 {
+            h1, .no-print {
+                display: none;
+            }
+            h2 {
                 color: #000 !important;
                 text-shadow: none;
                 border-bottom: 2px solid #000;
+                font-size: 14pt;
             }
             .pokedex-grid {
                 box-shadow: none;
-                page-break-after: always; /* Each table on a new page */
+            }
+            .page-container {
+                page-break-after: always; /* This is the key for printing one grid per page */
             }
              .pokedex-grid td {
                 border: 2px dashed #000;
              }
-            .no-print {
-                display: none;
-            }
         }
     </style>
 </head>
 <body>
 
-    <h1 class="no-print">Mi Pokédex para Binder (Gen 1 & 2 con Fotos)</h1>
+    <h1 class="no-print">Mi Pokédex para Binder (Gen 1 & 2)</h1>
 
-    <!-- PAGE 1 -->
-    <h2>Página 1 (Pokémon 1-9)</h2>
-    <table class="pokedex-grid">
-        <tr>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" alt="Imagen de Bulbasaur" onerror="this.style.display='none'"><div class="pokemon-info">#001<br>Bulbasaur<span class="japanese-name">フシギダネ</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png" alt="Imagen de Ivysaur" onerror="this.style.display='none'"><div class="pokemon-info">#002<br>Ivysaur<span class="japanese-name">フシギソウ</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png" alt="Imagen de Venusaur" onerror="this.style.display='none'"><div class="pokemon-info">#003<br>Venusaur<span class="japanese-name">フシギバナ</span></div></td>
-        </tr>
-        <tr>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" alt="Imagen de Charmander" onerror="this.style.display='none'"><div class="pokemon-info">#004<br>Charmander<span class="japanese-name">ヒトカゲ</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png" alt="Imagen de Charmeleon" onerror="this.style.display='none'"><div class="pokemon-info">#005<br>Charmeleon<span class="japanese-name">リザード</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="Imagen de Charizard" onerror="this.style.display='none'"><div class="pokemon-info">#006<br>Charizard<span class="japanese-name">リザードン</span></div></td>
-        </tr>
-        <tr>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png" alt="Imagen de Squirtle" onerror="this.style.display='none'"><div class="pokemon-info">#007<br>Squirtle<span class="japanese-name">ゼニガメ</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/008.png" alt="Imagen de Wartortle" onerror="this.style.display='none'"><div class="pokemon-info">#008<br>Wartortle<span class="japanese-name">カメール</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png" alt="Imagen de Blastoise" onerror="this.style.display='none'"><div class="pokemon-info">#009<br>Blastoise<span class="japanese-name">カメックス</span></div></td>
-        </tr>
-    </table>
+    <div class="page-container">
+        <h2>Página 1 (Pokémon 1-9)</h2>
+        <table class="pokedex-grid">
+            <tr>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" alt="Imagen de Bulbasaur" onerror="this.style.display='none'"><div class="pokemon-info">#001<br>Bulbasaur<span class="japanese-name">フシギダネ</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png" alt="Imagen de Ivysaur" onerror="this.style.display='none'"><div class="pokemon-info">#002<br>Ivysaur<span class="japanese-name">フシギソウ</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png" alt="Imagen de Venusaur" onerror="this.style.display='none'"><div class="pokemon-info">#003<br>Venusaur<span class="japanese-name">フシギバナ</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png" alt="Imagen de Charmander" onerror="this.style.display='none'"><div class="pokemon-info">#004<br>Charmander<span class="japanese-name">ヒトカゲ</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png" alt="Imagen de Charmeleon" onerror="this.style.display='none'"><div class="pokemon-info">#005<br>Charmeleon<span class="japanese-name">リザード</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="Imagen de Charizard" onerror="this.style.display='none'"><div class="pokemon-info">#006<br>Charizard<span class="japanese-name">リザードン</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png" alt="Imagen de Squirtle" onerror="this.style.display='none'"><div class="pokemon-info">#007<br>Squirtle<span class="japanese-name">ゼニガメ</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/008.png" alt="Imagen de Wartortle" onerror="this.style.display='none'"><div class="pokemon-info">#008<br>Wartortle<span class="japanese-name">カメール</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png" alt="Imagen de Blastoise" onerror="this.style.display='none'"><div class="pokemon-info">#009<br>Blastoise<span class="japanese-name">カメックス</span></div></td>
+            </tr>
+        </table>
+    </div>
 
-    <!-- PAGE 2 -->
-    <h2>Página 2 (Pokémon 10-18)</h2>
-    <table class="pokedex-grid">
-        <tr>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png" alt="Imagen de Caterpie" onerror="this.style.display='none'"><div class="pokemon-info">#010<br>Caterpie<span class="japanese-name">キャタピー</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png" alt="Imagen de Metapod" onerror="this.style.display='none'"><div class="pokemon-info">#011<br>Metapod<span class="japanese-name">トランセル</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png" alt="Imagen de Butterfree" onerror="this.style.display='none'"><div class="pokemon-info">#012<br>Butterfree<span class="japanese-name">バタフリー</span></div></td>
-        </tr>
-        <tr>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/013.png" alt="Imagen de Weedle" onerror="this.style.display='none'"><div class="pokemon-info">#013<br>Weedle<span class="japanese-name">ビードル</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/014.png" alt="Imagen de Kakuna" onerror="this.style.display='none'"><div class="pokemon-info">#014<br>Kakuna<span class="japanese-name">コクーン</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/015.png" alt="Imagen de Beedrill" onerror="this.style.display='none'"><div class="pokemon-info">#015<br>Beedrill<span class="japanese-name">スピアー</span></div></td>
-        </tr>
-        <tr>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png" alt="Imagen de Pidgey" onerror="this.style.display='none'"><div class="pokemon-info">#016<br>Pidgey<span class="japanese-name">ポッポ</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/017.png" alt="Imagen de Pidgeotto" onerror="this.style.display='none'"><div class="pokemon-info">#017<br>Pidgeotto<span class="japanese-name">ピジョン</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/018.png" alt="Imagen de Pidgeot" onerror="this.style.display='none'"><div class="pokemon-info">#018<br>Pidgeot<span class="japanese-name">ピジョット</span></div></td>
-        </tr>
-    </table>
+    <div class="page-container">
+        <h2>Página 2 (Pokémon 10-18)</h2>
+        <table class="pokedex-grid">
+            <tr>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png" alt="Imagen de Caterpie" onerror="this.style.display='none'"><div class="pokemon-info">#010<br>Caterpie<span class="japanese-name">キャタピー</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png" alt="Imagen de Metapod" onerror="this.style.display='none'"><div class="pokemon-info">#011<br>Metapod<span class="japanese-name">トランセル</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png" alt="Imagen de Butterfree" onerror="this.style.display='none'"><div class="pokemon-info">#012<br>Butterfree<span class="japanese-name">バタフリー</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/013.png" alt="Imagen de Weedle" onerror="this.style.display='none'"><div class="pokemon-info">#013<br>Weedle<span class="japanese-name">ビードル</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/014.png" alt="Imagen de Kakuna" onerror="this.style.display='none'"><div class="pokemon-info">#014<br>Kakuna<span class="japanese-name">コクーン</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/015.png" alt="Imagen de Beedrill" onerror="this.style.display='none'"><div class="pokemon-info">#015<br>Beedrill<span class="japanese-name">スピアー</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png" alt="Imagen de Pidgey" onerror="this.style.display='none'"><div class="pokemon-info">#016<br>Pidgey<span class="japanese-name">ポッポ</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/017.png" alt="Imagen de Pidgeotto" onerror="this.style.display='none'"><div class="pokemon-info">#017<br>Pidgeotto<span class="japanese-name">ピジョン</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/018.png" alt="Imagen de Pidgeot" onerror="this.style.display='none'"><div class="pokemon-info">#018<br>Pidgeot<span class="japanese-name">ピジョット</span></div></td>
+            </tr>
+        </table>
+    </div>
 
-    <!-- PAGE 3 -->
-    <h2>Página 3 (Pokémon 19-27)</h2>
-    <table class="pokedex-grid">
-        <tr>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png" alt="Imagen de Rattata" onerror="this.style.display='none'"><div class="pokemon-info">#019<br>Rattata<span class="japanese-name">コラッタ</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/020.png" alt="Imagen de Raticate" onerror="this.style.display='none'"><div class="pokemon-info">#020<br>Raticate<span class="japanese-name">ラッタ</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/021.png" alt="Imagen de Spearow" onerror="this.style.display='none'"><div class="pokemon-info">#021<br>Spearow<span class="japanese-name">オニスズメ</span></div></td>
-        </tr>
-        <tr>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/022.png" alt="Imagen de Fearow" onerror="this.style.display='none'"><div class="pokemon-info">#022<br>Fearow<span class="japanese-name">オニドリル</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/023.png" alt="Imagen de Ekans" onerror="this.style.display='none'"><div class="pokemon-info">#023<br>Ekans<span class="japanese-name">アーボ</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/024.png" alt="Imagen de Arbok" onerror="this.style.display='none'"><div class="pokemon-info">#024<br>Arbok<span class="japanese-name">アーボック</span></div></td>
-        </tr>
-        <tr>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="Imagen de Pikachu" onerror="this.style.display='none'"><div class="pokemon-info">#025<br>Pikachu<span class="japanese-name">ピカチュウ</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/026.png" alt="Imagen de Raichu" onerror="this.style.display='none'"><div class="pokemon-info">#026<br>Raichu<span class="japanese-name">ライチュウ</span></div></td>
-            <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/027.png" alt="Imagen de Sandshrew" onerror="this.style.display='none'"><div class="pokemon-info">#027<br>Sandshrew<span class="japanese-name">サンド</span></div></td>
-        </tr>
-    </table>
+    <div class="page-container">
+        <h2>Página 3 (Pokémon 19-27)</h2>
+        <table class="pokedex-grid">
+            <tr>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png" alt="Imagen de Rattata" onerror="this.style.display='none'"><div class="pokemon-info">#019<br>Rattata<span class="japanese-name">コラッタ</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/020.png" alt="Imagen de Raticate" onerror="this.style.display='none'"><div class="pokemon-info">#020<br>Raticate<span class="japanese-name">ラッタ</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/021.png" alt="Imagen de Spearow" onerror="this.style.display='none'"><div class="pokemon-info">#021<br>Spearow<span class="japanese-name">オニスズメ</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/022.png" alt="Imagen de Fearow" onerror="this.style.display='none'"><div class="pokemon-info">#022<br>Fearow<span class="japanese-name">オニドリル</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/023.png" alt="Imagen de Ekans" onerror="this.style.display='none'"><div class="pokemon-info">#023<br>Ekans<span class="japanese-name">アーボ</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/024.png" alt="Imagen de Arbok" onerror="this.style.display='none'"><div class="pokemon-info">#024<br>Arbok<span class="japanese-name">アーボック</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="Imagen de Pikachu" onerror="this.style.display='none'"><div class="pokemon-info">#025<br>Pikachu<span class="japanese-name">ピカチュウ</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/026.png" alt="Imagen de Raichu" onerror="this.style.display='none'"><div class="pokemon-info">#026<br>Raichu<span class="japanese-name">ライチュウ</span></div></td>
+                <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/027.png" alt="Imagen de Sandshrew" onerror="this.style.display='none'"><div class="pokemon-info">#027<br>Sandshrew<span class="japanese-name">サンド</span></div></td>
+            </tr>
+        </table>
+    </div>
 
-    <!-- PAGE 4 -->
+    <!-- ... The rest of the Pokémon up to 251 follow the same structure ... -->
+    <div class="page-container">
     <h2>Página 4 (Pokémon 28-36)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -194,8 +214,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/036.png" alt="Imagen de Clefable" onerror="this.style.display='none'"><div class="pokemon-info">#036<br>Clefable<span class="japanese-name">ピクシー</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 5 -->
+    </div>
+    <div class="page-container">
     <h2>Página 5 (Pokémon 37-45)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -214,8 +234,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/045.png" alt="Imagen de Vileplume" onerror="this.style.display='none'"><div class="pokemon-info">#045<br>Vileplume<span class="japanese-name">ラフレシア</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 6 -->
+    </div>
+    <div class="page-container">
     <h2>Página 6 (Pokémon 46-54)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -234,8 +254,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/054.png" alt="Imagen de Psyduck" onerror="this.style.display='none'"><div class="pokemon-info">#054<br>Psyduck<span class="japanese-name">コダック</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 7 -->
+    </div>
+    <div class="page-container">
     <h2>Página 7 (Pokémon 55-63)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -254,8 +274,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/063.png" alt="Imagen de Abra" onerror="this.style.display='none'"><div class="pokemon-info">#063<br>Abra<span class="japanese-name">ケーシィ</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 8 -->
+    </div>
+    <div class="page-container">
     <h2>Página 8 (Pokémon 64-72)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -274,8 +294,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/072.png" alt="Imagen de Tentacool" onerror="this.style.display='none'"><div class="pokemon-info">#072<br>Tentacool<span class="japanese-name">メノクラゲ</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 9 -->
+    </div>
+    <div class="page-container">
     <h2>Página 9 (Pokémon 73-81)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -294,8 +314,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/081.png" alt="Imagen de Magnemite" onerror="this.style.display='none'"><div class="pokemon-info">#081<br>Magnemite<span class="japanese-name">コイル</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 10 -->
+    </div>
+    <div class="page-container">
     <h2>Página 10 (Pokémon 82-90)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -314,8 +334,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/090.png" alt="Imagen de Shellder" onerror="this.style.display='none'"><div class="pokemon-info">#090<br>Shellder<span class="japanese-name">シェルダー</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 11 -->
+    </div>
+    <div class="page-container">
     <h2>Página 11 (Pokémon 91-99)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -334,8 +354,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/099.png" alt="Imagen de Kingler" onerror="this.style.display='none'"><div class="pokemon-info">#099<br>Kingler<span class="japanese-name">キングラー</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 12 -->
+    </div>
+    <div class="page-container">
     <h2>Página 12 (Pokémon 100-108)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -354,8 +374,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/108.png" alt="Imagen de Lickitung" onerror="this.style.display='none'"><div class="pokemon-info">#108<br>Lickitung<span class="japanese-name">ベロリンガ</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 13 -->
+    </div>
+    <div class="page-container">
     <h2>Página 13 (Pokémon 109-117)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -374,8 +394,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/117.png" alt="Imagen de Seadra" onerror="this.style.display='none'"><div class="pokemon-info">#117<br>Seadra<span class="japanese-name">シードラ</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 14 -->
+    </div>
+    <div class="page-container">
     <h2>Página 14 (Pokémon 118-126)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -394,8 +414,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/126.png" alt="Imagen de Magmar" onerror="this.style.display='none'"><div class="pokemon-info">#126<br>Magmar<span class="japanese-name">ブーバー</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 15 -->
+    </div>
+    <div class="page-container">
     <h2>Página 15 (Pokémon 127-135)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -414,8 +434,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/135.png" alt="Imagen de Jolteon" onerror="this.style.display='none'"><div class="pokemon-info">#135<br>Jolteon<span class="japanese-name">サンダース</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 16 -->
+    </div>
+    <div class="page-container">
     <h2>Página 16 (Pokémon 136-144)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -434,8 +454,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/144.png" alt="Imagen de Articuno" onerror="this.style.display='none'"><div class="pokemon-info">#144<br>Articuno<span class="japanese-name">フリーザー</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 17 -->
+    </div>
+    <div class="page-container">
     <h2>Página 17 (Pokémon 145-151)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -454,10 +474,11 @@
             <td></td>
         </tr>
     </table>
+    </div>
     
     <!-- GENERATION 2 STARTS HERE -->
 
-    <!-- PAGE 18 -->
+    <div class="page-container">
     <h2>Página 18 (Pokémon 152-160)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -476,8 +497,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/160.png" alt="Imagen de Feraligatr" onerror="this.style.display='none'"><div class="pokemon-info">#160<br>Feraligatr<span class="japanese-name">オーダイル</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 19 -->
+    </div>
+    <div class="page-container">
     <h2>Página 19 (Pokémon 161-169)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -496,8 +517,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/169.png" alt="Imagen de Crobat" onerror="this.style.display='none'"><div class="pokemon-info">#169<br>Crobat<span class="japanese-name">クロバット</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 20 -->
+    </div>
+    <div class="page-container">
     <h2>Página 20 (Pokémon 170-178)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -516,8 +537,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/178.png" alt="Imagen de Xatu" onerror="this.style.display='none'"><div class="pokemon-info">#178<br>Xatu<span class="japanese-name">ネイティオ</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 21 -->
+    </div>
+    <div class="page-container">
     <h2>Página 21 (Pokémon 179-187)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -536,8 +557,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/187.png" alt="Imagen de Hoppip" onerror="this.style.display='none'"><div class="pokemon-info">#187<br>Hoppip<span class="japanese-name">ハネッコ</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 22 -->
+    </div>
+    <div class="page-container">
     <h2>Página 22 (Pokémon 188-196)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -556,8 +577,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/196.png" alt="Imagen de Espeon" onerror="this.style.display='none'"><div class="pokemon-info">#196<br>Espeon<span class="japanese-name">エーフィ</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 23 -->
+    </div>
+    <div class="page-container">
     <h2>Página 23 (Pokémon 197-205)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -576,8 +597,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/205.png" alt="Imagen de Forretress" onerror="this.style.display='none'"><div class="pokemon-info">#205<br>Forretress<span class="japanese-name">フォレトス</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 24 -->
+    </div>
+    <div class="page-container">
     <h2>Página 24 (Pokémon 206-214)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -596,8 +617,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/214.png" alt="Imagen de Heracross" onerror="this.style.display='none'"><div class="pokemon-info">#214<br>Heracross<span class="japanese-name">ヘラクロス</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 25 -->
+    </div>
+    <div class="page-container">
     <h2>Página 25 (Pokémon 215-223)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -616,8 +637,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/223.png" alt="Imagen de Remoraid" onerror="this.style.display='none'"><div class="pokemon-info">#223<br>Remoraid<span class="japanese-name">テッポウオ</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 26 -->
+    </div>
+    <div class="page-container">
     <h2>Página 26 (Pokémon 224-232)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -636,8 +657,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/232.png" alt="Imagen de Donphan" onerror="this.style.display='none'"><div class="pokemon-info">#232<br>Donphan<span class="japanese-name">ドンファン</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 27 -->
+    </div>
+    <div class="page-container">
     <h2>Página 27 (Pokémon 233-241)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -656,8 +677,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/241.png" alt="Imagen de Miltank" onerror="this.style.display='none'"><div class="pokemon-info">#241<br>Miltank<span class="japanese-name">ミルタンク</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 28 -->
+    </div>
+    <div class="page-container">
     <h2>Página 28 (Pokémon 242-250)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -676,8 +697,8 @@
             <td><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/250.png" alt="Imagen de Ho-Oh" onerror="this.style.display='none'"><div class="pokemon-info">#250<br>Ho-Oh<span class="japanese-name">ホウオウ</span></div></td>
         </tr>
     </table>
-
-    <!-- PAGE 29 -->
+    </div>
+    <div class="page-container">
     <h2>Página 29 (Pokémon 251)</h2>
     <table class="pokedex-grid">
         <tr>
@@ -696,6 +717,7 @@
             <td></td>
         </tr>
     </table>
+    </div>
 
 </body>
 </html>
