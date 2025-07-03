@@ -10,9 +10,12 @@
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f9;
             color: #333;
+            /* Key changes for grid layout */
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px; /* Space between pages */
             margin: 0;
             padding: 20px;
         }
@@ -22,6 +25,8 @@
             color: #e4000f; /* Classic Pokémon Red color */
             text-shadow: 2px 2px 4px #aaa;
             font-size: 2.5em;
+            width: 100%;
+            text-align: center;
         }
 
         /* Style for page subtitles */
@@ -29,17 +34,28 @@
             color: #3b4cca; /* Classic Pokémon Blue color */
             border-bottom: 3px solid #ffde00; /* Pokémon Yellow color */
             padding-bottom: 5px;
-            margin-top: 40px;
-            width: 90%;
-            max-width: 650px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            width: 100%;
             text-align: center;
+        }
+        
+        /* Container for each 3x3 grid page */
+        .page-container {
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
 
         /* Style for the table simulating the binder sheet */
         .pokedex-grid {
             border-collapse: separate;
             border-spacing: 8px;
-            margin-top: 20px;
         }
 
         /* Style for each cell simulating a card pocket */
@@ -51,7 +67,7 @@
             text-align: center;
             padding: 10px;
             font-weight: bold;
-            background-color: #ffffff;
+            background-color: #fafafa;
             transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
             flex-direction: column;
@@ -60,7 +76,7 @@
         }
         
         .pokedex-grid td:empty {
-            background-color: #f0f0f0;
+            background-color: #e8e8e8;
             border-style: solid;
         }
 
@@ -92,19 +108,13 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
             border-style: solid;
         }
-        
-        .page-container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
 
         /* Styles for printing */
         @media print {
             body {
                 background-color: #fff;
                 padding: 0;
+                display: block; /* Revert to block for printing */
             }
             h1, .no-print {
                 display: none;
@@ -120,6 +130,8 @@
             }
             .page-container {
                 page-break-after: always; /* This is the key for printing one grid per page */
+                box-shadow: none;
+                border: none;
             }
              .pokedex-grid td {
                 border: 2px dashed #000;
